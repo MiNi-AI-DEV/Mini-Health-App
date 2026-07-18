@@ -35,19 +35,15 @@ public class Main {
 
                 case 2:
 
-                    case 2:
+                if (patient != null) {
+                patient.displayPatient();
+                } else {
+                System.out.println("No patient registered yet.");
+                }
 
-    if (patient != null) {
-        patient.displayPatient();
-    } else {
-        System.out.println("No patient registered yet.");
-    }
+                break;
 
-    break;
-
-                    break;
-
-                case 3:
+                 case 3:
                     System.out.println("Validate Patient Selected");
                     break;
 
@@ -66,7 +62,7 @@ public class Main {
                     System.out.println("Invalid Choice.");
             }
 
-        } while (choice != 5);
+        } while (choice != 6);
 
         sc.close();
     }

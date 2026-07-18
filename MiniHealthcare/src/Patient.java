@@ -28,6 +28,26 @@ public class Patient {
         this.admissionDate = admissionDate;
     }
 
+    public String getPatientName() {
+    return patientName;
+    }
+
+    public int getAge() {
+    return age;
+    }
+
+    public String getGender() {
+    return gender;
+    }
+
+    public String getPhoneNumber() {
+    return phoneNumber;
+    }
+
+    public String getAdmissionDate() {
+    return admissionDate;
+    }
+
     // Display Method
     public void displayPatient() {
 
