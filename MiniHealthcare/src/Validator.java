@@ -4,34 +4,44 @@ public class Validator {
 
         boolean isValid = true;
 
+        // Name Validation
         if (patient.getPatientName().trim().isEmpty()) {
-            System.out.println("Error: Patient Name cannot be empty.");
+            System.out.println("❌ Patient Name cannot be empty.");
             isValid = false;
         }
 
+        // Age Validation
         if (patient.getAge() < 1 || patient.getAge() > 120) {
-            System.out.println("Error: Invalid Age.");
+            System.out.println("❌ Age must be between 1 and 120.");
             isValid = false;
         }
 
-        if (!(patient.getGender().equalsIgnoreCase("Male")
-                || patient.getGender().equalsIgnoreCase("Female")
-                || patient.getGender().equalsIgnoreCase("Other"))) {
+        // Gender Validation
+        String gender = patient.getGender();
 
-            System.out.println("Error: Invalid Gender.");
+        if (!(gender.equalsIgnoreCase("Male")
+                || gender.equalsIgnoreCase("Female")
+                || gender.equalsIgnoreCase("Other"))) {
+
+            System.out.println("❌ Gender must be Male, Female or Other.");
             isValid = false;
         }
 
+        // Phone Validation
         if (!patient.getPhoneNumber().matches("\\d{10}")) {
-            System.out.println("Error: Phone Number must contain exactly 10 digits.");
+
+            System.out.println("❌ Phone Number must contain exactly 10 digits.");
             isValid = false;
         }
 
+        // Admission Date
         if (patient.getAdmissionDate().trim().isEmpty()) {
-            System.out.println("Error: Admission Date cannot be empty.");
+
+            System.out.println("❌ Admission Date cannot be empty.");
             isValid = false;
         }
 
         return isValid;
     }
+
 }

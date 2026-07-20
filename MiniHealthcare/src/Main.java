@@ -7,6 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         PatientService patientService = new PatientService();
+        Validator validator = new Validator();
         Patient patient = null;
 
         int choice;
@@ -44,8 +45,28 @@ public class Main {
                 break;
 
                  case 3:
-                    System.out.println("Validate Patient Selected");
-                    break;
+
+                if (patient == null) {
+
+                System.out.println("No patient registered yet.");
+
+                } else {
+
+                 boolean result = validator.validatePatient(patient);
+
+                if (result) {
+
+                System.out.println("\n✅ Patient Validation Successful.");
+
+                } else {
+
+                System.out.println("\n❌ Patient Validation Failed.");
+
+                }
+
+                }
+
+                break;
 
                 case 4:
                     System.out.println("Generate Report Selected");
