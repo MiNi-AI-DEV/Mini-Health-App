@@ -34,13 +34,9 @@ public class Main {
                     patient = patientService.registerPatient();
                     break;
 
-                case 2:
+               case 2:
 
-                if (patient != null) {
-                patient.displayPatient();
-                } else {
-                System.out.println("No patient registered yet.");
-                }
+                patientService.displayAllPatients();
 
                 break;
 

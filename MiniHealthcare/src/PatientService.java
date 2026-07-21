@@ -1,6 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PatientService {
+
+     private ArrayList<Patient> patientList = new ArrayList<>();
 
     public Patient registerPatient() {
 
@@ -30,9 +33,31 @@ public class PatientService {
                 gender,
                 phone,
                 admissionDate);
+                patientList.add(patient);
 
         System.out.println("\nPatient Registered Successfully!");
 
         return patient;
     }
+}
+public void displayAllPatients() 
+{
+
+    if (patientList.isEmpty()) 
+    {
+
+        System.out.println("\nNo patients available.");
+
+        return;
+    }
+
+    System.out.println("\n========== Patient List ==========");
+
+    for (Patient patient : patientList)
+    {
+
+        patient.displayPatient();
+
+    }
+
 }
