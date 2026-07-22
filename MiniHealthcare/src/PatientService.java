@@ -1,13 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PatientService {
+public class PatientService implements AutoCloseable {
 
-     private ArrayList<Patient> patientList = new ArrayList<>();
+    private ArrayList<Patient> patientList = new ArrayList<>();
+    private final Scanner sc = new Scanner(System.in);
 
     public Patient registerPatient() {
-
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("\n========= Register Patient =========");
 
@@ -33,31 +32,52 @@ public class PatientService {
                 gender,
                 phone,
                 admissionDate);
-                patientList.add(patient);
+        patientList.add(patient);
 
         System.out.println("\nPatient Registered Successfully!");
 
         return patient;
     }
-}
-public void displayAllPatients() 
-{
 
-    if (patientList.isEmpty()) 
-    {
+    public void displayAllPatients() {
 
-        System.out.println("\nNo patients available.");
+        if (patientList.isEmpty()) {
+            System.out.println("\nNo patients available.");
+            return;
+        }
 
-        return;
-    }
+        System.out.println("\n========== Patient List ==========");
 
-    System.out.println("\n========== Patient List ==========");
-
-    for (Patient patient : patientList)
-    {
-
-        patient.displayPatient();
+        for (Patient patient : patientList) {
+            patient.displayPatient();
+        }
 
     }
 
+    public void searchPatient() {
+
+        System.out.print("\nEnter Patient ID : ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        boolean found = false;
+
+        for (Patient patient : patientList) {
+            if (patient.getPatientId() == id) {
+                patient.displayPatient();
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Patient not found.");
+        }
+
+    }
+
+    @Override
+    public void close() {
+        sc.close();
+    }
 }

@@ -28,6 +28,10 @@ public class Patient {
         this.admissionDate = admissionDate;
     }
 
+    public int getPatientId() {
+    return patientId;
+    }
+
     public String getPatientName() {
     return patientName;
     }
