@@ -34,7 +34,10 @@ public class PatientService implements AutoCloseable {
                 admissionDate);
         patientList.add(patient);
 
-        System.out.println("\nPatient Registered Successfully!");
+        System.out.println("\n=================================");
+        System.out.println("Patient Registered Successfully!");
+        System.out.println("Your Patient ID is : " + patient.getPatientId());
+        System.out.println("=================================");
 
         return patient;
     }
