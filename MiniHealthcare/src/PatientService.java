@@ -42,22 +42,38 @@ public class PatientService implements AutoCloseable {
         return patient;
     }
 
-    public void displayAllPatients() {
+    public void displayPatientById() 
+    {
 
-        if (patientList.isEmpty()) {
-            System.out.println("\nNo patients available.");
-            return;
-        }
+        System.out.print("\nEnter Patient ID : ");
+        int id = sc.nextInt();
 
-        System.out.println("\n========== Patient List ==========");
+        boolean found = false;
 
         for (Patient patient : patientList) {
+
+        if (patient.getPatientId() == id)
+        {
+
             patient.displayPatient();
+            found = true;
+            break;
+
         }
 
     }
 
-    public void searchPatient() {
+    if (!found) 
+    {
+
+        System.out.println("\nPatient ID not found.");
+
+    }
+
+}
+
+    public void searchPatient() 
+    {
 
         System.out.print("\nEnter Patient ID : ");
         int id = sc.nextInt();
@@ -65,22 +81,26 @@ public class PatientService implements AutoCloseable {
 
         boolean found = false;
 
-        for (Patient patient : patientList) {
-            if (patient.getPatientId() == id) {
+        for (Patient patient : patientList) 
+        {
+            if (patient.getPatientId() == id) 
+            {
                 patient.displayPatient();
                 found = true;
                 break;
             }
         }
 
-        if (!found) {
+        if (!found) 
+        {
             System.out.println("Patient not found.");
         }
 
     }
 
     @Override
-    public void close() {
+    public void close()
+ {
         sc.close();
     }
 }
