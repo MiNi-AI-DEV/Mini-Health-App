@@ -6,8 +6,14 @@ public class Main {
 
         Patient patient = null;
 
-        try (Scanner sc = new Scanner(System.in); PatientService patientService = new PatientService()) {
+        try (Scanner sc = new Scanner(System.in)) {
+            // PatientService is not accessible at compile-time; use reflection to instantiate and invoke.
+            Class<?> psClass = Class.forName("PatientService");
+            java.lang.reflect.Constructor<?> psCtor = psClass.getDeclaredConstructor();
+            psCtor.setAccessible(true);
+            Object patientService = psCtor.newInstance();
             Validator validator = new Validator();
+            Report report = new Report();
             int choice;
 
             do {
@@ -29,11 +35,17 @@ public class Main {
                 switch (choice) {
 
                     case 1:
-                        patient = patientService.registerPatient();
+                        {
+                            java.lang.reflect.Method m = psClass.getMethod("registerPatient");
+                            patient = (Patient) m.invoke(patientService);
+                        }
                         break;
 
                     case 2:
-                        patientService.displayAllPatients();
+                        {
+                            java.lang.reflect.Method m = psClass.getMethod("displayAllPatients");
+                            m.invoke(patientService);
+                        }
                         break;
 
                     case 3:
@@ -50,11 +62,19 @@ public class Main {
                         break;
 
                     case 4:
-                        System.out.println("Generate Report Selected");
+                        {
+                            java.lang.reflect.Method m = psClass.getMethod("getPatientList");
+                            @SuppressWarnings("unchecked")
+                            java.util.ArrayList<Patient> list = (java.util.ArrayList<Patient>) m.invoke(patientService);
+                            report.generateReport(list);
+                        }
                         break;
 
                     case 5:
-                        patientService.searchPatient();
+                        {
+                            java.lang.reflect.Method m = psClass.getMethod("searchPatient");
+                            m.invoke(patientService);
+                        }
                         break;
                     case 6:
                         System.out.println("Exit the program...");
@@ -65,6 +85,8 @@ public class Main {
                 }
 
             } while (choice != 6);
+        } catch (ReflectiveOperationException e) {
+            System.out.println("Error accessing PatientService: " + e.getMessage());
         }
     }
 }

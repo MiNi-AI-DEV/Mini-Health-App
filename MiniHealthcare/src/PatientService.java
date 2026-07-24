@@ -104,3 +104,7 @@ public class PatientService implements AutoCloseable {
         sc.close();
     }
 }
+public ArrayList<Patient> getPatientList()
+{
+    return patientList;
+}
