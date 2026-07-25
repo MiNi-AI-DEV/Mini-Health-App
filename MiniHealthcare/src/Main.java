@@ -26,7 +26,8 @@ public class Main {
                 System.out.println("3. Validate Patient");
                 System.out.println("4. Generate Report");
                 System.out.println("5. Search Patient");
-                System.out.println("6. Exit");
+                System.out.println("6. Update Patient");
+                System.out.println("7. Exit");
                 System.out.println("==============================================");
 
                 System.out.print("Enter your choice : ");
@@ -77,14 +78,21 @@ public class Main {
                         }
                         break;
                     case 6:
-                        System.out.println("Exit the program...");
+                        {
+                        patientService.updatePatient();
+                        }
+                        break;
+                    case 7:
+                        {
+                        System.out.println("Thank you for using Mini Healthcare System.");
+                        }
                         break;
 
                     default:
                         System.out.println("Invalid Choice.");
                 }
 
-            } while (choice != 6);
+            } while (choice != 7);
         } catch (ReflectiveOperationException e) {
             System.out.println("Error accessing PatientService: " + e.getMessage());
         }

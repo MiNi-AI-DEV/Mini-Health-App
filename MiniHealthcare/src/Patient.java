@@ -51,6 +51,25 @@ public class Patient {
     public String getAdmissionDate() {
     return admissionDate;
     }
+    public void setPatientName(String patientName) {
+    this.patientName = patientName;
+    }
+
+    public void setAge(int age) {
+    this.age = age;
+    }
+
+    public void setGender(String gender) {
+    this.gender = gender;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+    }
+
+    public void setAdmissionDate(String admissionDate) {
+    this.admissionDate = admissionDate;
+    }
 
     // Display Method
     public void displayPatient() {

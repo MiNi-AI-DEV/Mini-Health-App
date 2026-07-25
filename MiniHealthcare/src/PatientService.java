@@ -97,6 +97,41 @@ public class PatientService implements AutoCloseable {
         }
 
     }
+    public void updatePatient() {
+
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("\nEnter Patient ID to Update : ");
+    int id = sc.nextInt();
+    sc.nextLine();
+
+    for (Patient patient : patientList) {
+
+        if (patient.getPatientId() == id) {
+
+            System.out.print("Enter New Name : ");
+            patient.setPatientName(sc.nextLine());
+
+            System.out.print("Enter New Age : ");
+            patient.setAge(sc.nextInt());
+            sc.nextLine();
+
+            System.out.print("Enter New Gender : ");
+            patient.setGender(sc.nextLine());
+
+            System.out.print("Enter New Phone Number : ");
+            patient.setPhoneNumber(sc.nextLine());
+
+            System.out.print("Enter New Admission Date : ");
+            patient.setAdmissionDate(sc.nextLine());
+
+            System.out.println("\n✅ Patient Updated Successfully.");
+            return;
+        }
+    }
+
+    System.out.println("\n❌ Patient ID not found.");
+}
 
     @Override
     public void close()
