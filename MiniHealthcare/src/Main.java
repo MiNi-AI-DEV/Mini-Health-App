@@ -27,7 +27,8 @@ public class Main {
                 System.out.println("4. Generate Report");
                 System.out.println("5. Search Patient");
                 System.out.println("6. Update Patient");
-                System.out.println("7. Exit");
+                System.out.println("7. Delete Patient");
+                System.out.println("8. Exit");
                 System.out.println("==============================================");
 
                 System.out.print("Enter your choice : ");
@@ -79,12 +80,16 @@ public class Main {
                         break;
                     case 6:
                         {
-                        patientService.updatePatient();
+                            patientService.updatePatient();
                         }
                         break;
                     case 7:
                         {
-                        System.out.println("Thank you for using Mini Healthcare System.");
+                            patientService.deletePatient();
+                        }
+                    case 8:
+                        {
+                            System.out.println("Thank you for using Mini Healthcare System.");
                         }
                         break;
 
