@@ -4,102 +4,95 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+
+        PatientService patientService = new PatientService();
+        Validator validator = new Validator();
+        Report report = new Report();
+
         Patient patient = null;
 
-        try (Scanner sc = new Scanner(System.in)) {
-            // PatientService is not accessible at compile-time; use reflection to instantiate and invoke.
-            Class<?> psClass = Class.forName("PatientService");
-            java.lang.reflect.Constructor<?> psCtor = psClass.getDeclaredConstructor();
-            psCtor.setAccessible(true);
-            Object patientService = psCtor.newInstance();
-            Validator validator = new Validator();
-            Report report = new Report();
-            int choice;
+        int choice;
 
-            do {
+        do {
 
-                System.out.println("\n==============================================");
-                System.out.println(" MINI HEALTHCARE PATIENT VALIDATION SYSTEM");
-                System.out.println("==============================================");
-                System.out.println("1. Register Patient");
-                System.out.println("2. Display Patient");
-                System.out.println("3. Validate Patient");
-                System.out.println("4. Generate Report");
-                System.out.println("5. Search Patient");
-                System.out.println("6. Update Patient");
-                System.out.println("7. Delete Patient");
-                System.out.println("8. Exit");
-                System.out.println("==============================================");
+            System.out.println("\n==============================================");
+            System.out.println(" MINI HEALTHCARE PATIENT VALIDATION SYSTEM");
+            System.out.println("==============================================");
+            System.out.println("1. Register Patient");
+            System.out.println("2. Display Patient by ID");
+            System.out.println("3. Validate Patient");
+            System.out.println("4. Generate Report");
+            System.out.println("5. Search Patient");
+            System.out.println("6. Update Patient");
+            System.out.println("7. Delete Patient");
+            System.out.println("8. Display All Patients");
+            System.out.println("9. Exit");
+            System.out.println("==============================================");
 
-                System.out.print("Enter your choice : ");
-                choice = sc.nextInt();
+            System.out.print("Enter your choice : ");
+            choice = sc.nextInt();
 
-                switch (choice) {
+            switch (choice) {
 
-                    case 1:
-                        {
-                            java.lang.reflect.Method m = psClass.getMethod("registerPatient");
-                            patient = (Patient) m.invoke(patientService);
-                        }
-                        break;
+                case 1:
+                    patient = patientService.registerPatient();
+                    break;
 
-                    case 2:
-                        {
-                            java.lang.reflect.Method m = psClass.getMethod("displayAllPatients");
-                            m.invoke(patientService);
-                        }
-                        break;
+                case 2:
+                    patientService.displayPatientById();
+                    break;
 
-                    case 3:
-                        if (patient == null) {
-                            System.out.println("No patient registered yet.");
+                case 3:
+
+                    if (patient == null) {
+
+                        System.out.println("No patient registered yet.");
+
+                    } else {
+
+                        boolean result = validator.validatePatient(patient);
+
+                        if (result) {
+                            System.out.println("\nPatient Validation Successful.");
                         } else {
-                            boolean result = validator.validatePatient(patient);
-                            if (result) {
-                                System.out.println("\n✅ Patient Validation Successful.");
-                            } else {
-                                System.out.println("\n❌ Patient Validation Failed.");
-                            }
+                            System.out.println("\nPatient Validation Failed.");
                         }
-                        break;
+                    }
 
-                    case 4:
-                        {
-                            java.lang.reflect.Method m = psClass.getMethod("getPatientList");
-                            @SuppressWarnings("unchecked")
-                            java.util.ArrayList<Patient> list = (java.util.ArrayList<Patient>) m.invoke(patientService);
-                            report.generateReport(list);
-                        }
-                        break;
+                    break;
 
-                    case 5:
-                        {
-                            java.lang.reflect.Method m = psClass.getMethod("searchPatient");
-                            m.invoke(patientService);
-                        }
-                        break;
-                    case 6:
-                        {
-                            patientService.updatePatient();
-                        }
-                        break;
-                    case 7:
-                        {
-                            patientService.deletePatient();
-                        }
-                    case 8:
-                        {
-                            System.out.println("Thank you for using Mini Healthcare System.");
-                        }
-                        break;
+                case 4:
+                    report.generateReport(patientService.getPatientList());
+                    break;
 
-                    default:
-                        System.out.println("Invalid Choice.");
-                }
+                case 5:
+                    patientService.searchPatient();
+                    break;
 
-            } while (choice != 7);
-        } catch (ReflectiveOperationException e) {
-            System.out.println("Error accessing PatientService: " + e.getMessage());
-        }
+                case 6:
+                    patientService.updatePatient();
+                    break;
+
+                case 7:
+                    patientService.deletePatient();
+                    break;
+
+                case 8:
+                    patientService.displayAllPatients();
+                    break;
+
+                case 9:
+                    System.out.println("\nThank you for using Mini Healthcare System.");
+                    break;
+
+                default:
+                    System.out.println("\nInvalid Choice.");
+            }
+
+        } while (choice != 9);
+
+        patientService.close();
+        sc.close();
     }
 }
