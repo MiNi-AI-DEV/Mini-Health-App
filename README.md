@@ -16,4 +16,17 @@ Java + Spring Boot + MySQL + Apache POI (Excel reports) + JavaMailSender + Maven
 Why it's unique:
 I have modified Main.java and patientservice.java to register the patient
 
+We'll first build a Java Console Application.
+
+It will:
+
+✅ Register a patient
+✅ Display patient details
+✅ Validate patient information
+✅ Generate a simple report
+❌ No MySQL yet
+❌ No CSV yet
+❌ No PDF yet
+❌ No Email yet
+
 
