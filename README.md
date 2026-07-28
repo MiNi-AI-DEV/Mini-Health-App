@@ -43,3 +43,15 @@ Step 8: Read patient data from a CSV file.
 Step 9: Connect the project to MySQL.
 Step 10: Convert it into a Spring Boot web application.
 
+we'll create Patient.java.
+
+In that class you'll learn how to use:
+
+Private data members
+Default constructor
+Parameterized constructor
+Static member (patientCounter)
+Methods to display patient details
+
+We'll design it like a real hospital software model instead of a simple classroom example.
+
