@@ -55,3 +55,12 @@ Methods to display patient details
 
 We'll design it like a real hospital software model instead of a simple classroom example.
 
+Create the MiniHealthcare project folder.
+Create the src folder.
+Create these five Java files:
+Main.java
+Patient.java
+PatientService.java
+Validator.java
+Report.java
+
