@@ -30,3 +30,16 @@ It will:
 ❌ No Email yet
 
 
+We'll progress one step at a time:
+
+Step 1 (Today): Create the project structure and menu.
+Step 2: Build the Patient class using constructors and access specifiers.
+Step 3: Register a patient using Scanner.
+Step 4: Add validation logic.
+Step 5: Display patient details.
+Step 6: Generate a summary report.
+Step 7: Add support for multiple patients.
+Step 8: Read patient data from a CSV file.
+Step 9: Connect the project to MySQL.
+Step 10: Convert it into a Spring Boot web application.
+
