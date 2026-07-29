@@ -132,3 +132,37 @@ Duplicate patient IDs
 Missing mandatory fields in uploaded files
 
 All of those will reuse the same Validator class, just like in real enterprise applications.
+
+Learning Objective
+
+Today you're learning something that every enterprise Java application uses:
+
+Encapsulation (getters)
+Validation logic
+Regular expressions (matches("\\d{10}"))
+Separation of responsibilities:
+Patient → stores data
+PatientService → handles input
+Validator → validates data
+Main → controls program flow
+
+This separation makes the code cleaner and easier to extend.
+
+Module 5 – Store Multiple Patients
+Step 1 – Learn ArrayList
+Step 2 – Create Patient List
+Step 3 – Save Every Patient
+Step 4 – Display All Patients
+Step 5 – Modify Main.java
+New Java Concepts You'll Learn
+
+In this module, you'll learn several Core Java topics that are essential for interviews and real projects:
+
+ArrayList
+Generic Collections (ArrayList<Patient>)
+Enhanced for loop
+isEmpty()
+add()
+Managing multiple objects
+
+These are much more powerful than using arrays and are widely used in enterprise Java applications.
