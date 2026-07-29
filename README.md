@@ -73,3 +73,13 @@ Default constructor
 Parameterized constructor
 Static member (patientCounter)
 Methods to display patient details
+
+Create the Patient Class
+The Patient class is the heart of our application. It represents a single patient and stores all the patient's information.
+
+Java concepts we'll use
+✅ Access Specifiers (private, public)
+✅ Default Constructor
+✅ Parameterized Constructor
+✅ Static Member
+✅ Methods
