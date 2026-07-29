@@ -64,3 +64,12 @@ PatientService.java
 Validator.java
 Report.java
 
+Create the Main Menu
+we'll create Patient.java.
+In that class you'll learn how to use:
+
+Private data members
+Default constructor
+Parameterized constructor
+Static member (patientCounter)
+Methods to display patient details
