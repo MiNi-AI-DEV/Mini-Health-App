@@ -83,3 +83,9 @@ Java concepts we'll use
 ✅ Parameterized Constructor
 ✅ Static Member
 ✅ Methods
+
+we'll make Option 1: Register Patient actually work.
+We'll then create a Patient object using the parameterized constructor and display the patient's details.
+
+Module 3: Register Patient
+When the user selects 1. Register Patient then it should create a Patient object and display the patient's details.
