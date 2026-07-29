@@ -166,3 +166,26 @@ add()
 Managing multiple objects
 
 These are much more powerful than using arrays and are widely used in enterprise Java applications.
+
+We'll implement Search Patient, where a user can enter a Patient ID like 1002 and the program will display only that patient's details.
+
+That feature will prepare us for searching records in CSV files and MySQL databases later.
+
+Module 6 – Search Patient
+Step 1: Add a getter for Patient ID
+Step 2: Create searchPatient() in PatientService.java
+Step 3: Modify Main.java
+Step 4: Test
+
+New Java Concepts You've Learned
+
+With this module, you've now practiced:
+
+✅ ArrayList
+✅ Enhanced for loop
+✅ Searching objects in a collection
+✅ Getter methods
+✅ Boolean flag (found)
+✅ Breaking out of a loop with break
+
+These are very common interview topics and are used in many Java applications
