@@ -89,3 +89,46 @@ We'll then create a Patient object using the parameterized constructor and displ
 
 Module 3: Register Patient
 When the user selects 1. Register Patient then it should create a Patient object and display the patient's details.
+
+Step 1: Update PatientService.java
+Step 2: Update Main.java
+
+
+You have now used:
+
+✅ Objects
+✅ Constructors
+✅ Returning an object from a method
+✅ Calling methods from another class
+✅ Storing an object in a variable
+✅ Displaying object data
+
+Module 4: Patient Data Validation
+
+Goal
+
+When a user registers a patient, the program should automatically check:
+
+Field	Validation
+Patient Name	Cannot be empty
+Age	Must be between 1 and 120
+Gender	Male / Female / Other
+Phone Number	Exactly 10 digits
+Admission Date	Cannot be empty (we'll check the date format later)
+
+Step 1: Update Validator.java
+Step 2: Update Patient.java
+Step 3: Update Main.java
+Step 4: Modify Case 3
+
+Why this module is important
+
+This is the beginning of the "Patient Data Validation" part of your project title. Later, we'll extend it to validate:
+
+CSV records
+MySQL records
+Date formats using Java's Date API
+Duplicate patient IDs
+Missing mandatory fields in uploaded files
+
+All of those will reuse the same Validator class, just like in real enterprise applications.
