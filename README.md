@@ -189,3 +189,52 @@ With this module, you've now practiced:
 ✅ Breaking out of a loop with break
 
 These are very common interview topics and are used in many Java applications
+After search works, we'll build Generate Report.
+
+Instead of just printing "Generate Report Selected"
+This module will teach you:
+
+Loops for calculations
+Counters
+Conditional logic
+Basic statistics
+Report generation
+
+✅ Requirement 1: Print Patient ID after Registration
+✅ Requirement 2: Display Patient by Entering Patient ID
+
+Module 7: Generate Daily Summary Report
+Goal
+
+When the user selects 4. Generate Report, the application should display something like:
+
+=========================================
+       DAILY SUMMARY REPORT
+=========================================
+Total Patients      : 5
+Male Patients       : 3
+Female Patients     : 2
+Other Patients      : 0
+Average Age         : 31.60 Years
+=========================================
+
+Step 1: Create Report Method
+Step 2: Update PatientService.java
+Step 3: Update Main.java
+Step 4: Modify Case 4
+
+After this, we'll continue with:
+
+Module 8: Patient Data Validation (Advanced)
+Duplicate Patient IDs
+Date format validation (dd-MM-yyyy)
+Phone number validation using Regular Expressions
+Name validation (letters only)
+Module 9: CSV File Support
+Read patient records from a CSV file.
+Validate every record automatically.
+Module 10: MySQL Integration
+Save patients in a database.
+Search directly from MySQL.
+
+At that point, your project will start looking like a real healthcare management
