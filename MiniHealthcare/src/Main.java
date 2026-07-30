@@ -9,6 +9,7 @@ public class Main {
         PatientService patientService = new PatientService();
         Validator validator = new Validator();
         Report report = new Report();
+        CSVReader csvReader = new CSVReader();
 
         Patient patient = null;
 
@@ -27,7 +28,8 @@ public class Main {
             System.out.println("6. Update Patient");
             System.out.println("7. Delete Patient");
             System.out.println("8. Display All Patients");
-            System.out.println("9. Exit");
+            System.out.println("9. Import Patients from CSV");
+            System.out.println("10. Exit");
             System.out.println("==============================================");
 
             System.out.print("Enter your choice : ");
@@ -83,14 +85,18 @@ public class Main {
                     break;
 
                 case 9:
-                    System.out.println("\nThank you for using Mini Healthcare System.");
+                    csvReader.readCSV("../patients.csv");
+                    break;
+
+                case 10:
+                    System.out.println("Thank you for using Mini Healthcare.");
                     break;
 
                 default:
                     System.out.println("\nInvalid Choice.");
             }
 
-        } while (choice != 9);
+        } while (choice != 10);
 
         patientService.close();
         sc.close();
