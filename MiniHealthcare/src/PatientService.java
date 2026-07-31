@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class PatientService implements AutoCloseable {
+public class PatientService implements AutoCloseable 
+{
 
     private ArrayList<Patient> patientList = new ArrayList<>();
     private final Scanner sc = new Scanner(System.in);
@@ -175,16 +176,15 @@ public class PatientService implements AutoCloseable {
 
     // Return Patient List
     public ArrayList<Patient> getPatientList() {
-        return patientList;
+    return patientList;
     }
 
+    // Add Patient (for CSV Import)
+    public void addPatient(Patient patient) {
+    patientList.add(patient);
+    }
     @Override
     public void close() {
-        sc.close();
-    }
+    sc.close();
 }
-public void addPatient(Patient patient) {
-
-    patientList.add(patient);
-
 }
