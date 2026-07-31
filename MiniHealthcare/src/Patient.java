@@ -27,6 +27,18 @@ public class Patient {
         this.phoneNumber = phoneNumber;
         this.admissionDate = admissionDate;
     }
+    public Patient(int patientId, String patientName, int age,
+               String gender, String phoneNumber,
+               String admissionDate)
+    {
+
+        this.patientId = patientId;
+        this.patientName = patientName;
+        this.age = age;
+        this.gender = gender;
+        this.phoneNumber = phoneNumber;
+        this.admissionDate = admissionDate;
+    }
 
     public int getPatientId() {
     return patientId;
@@ -69,7 +81,7 @@ public class Patient {
 
     public void setAdmissionDate(String admissionDate) {
     this.admissionDate = admissionDate;
-    }
+        }
 
     // Display Method
     public void displayPatient() {

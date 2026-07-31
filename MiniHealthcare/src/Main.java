@@ -85,7 +85,7 @@ public class Main {
                     break;
 
                 case 9:
-                    csvReader.readCSV("../patients.csv");
+                    csvReader.readCSV("../patients.csv", patientService);
                     break;
 
                 case 10:
@@ -98,7 +98,6 @@ public class Main {
 
         } while (choice != 10);
 
-        patientService.close();
-        sc.close();
+        patientService.close(); 
     }
 }

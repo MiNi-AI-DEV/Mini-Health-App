@@ -183,3 +183,8 @@ public class PatientService implements AutoCloseable {
         sc.close();
     }
 }
+public void addPatient(Patient patient) {
+
+    patientList.add(patient);
+
+}
