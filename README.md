@@ -238,3 +238,26 @@ Save patients in a database.
 Search directly from MySQL.
 
 At that point, your project will start looking like a real healthcare management
+
+
+## Current Features
+
+- Register Patient
+- Display Patient
+- Search Patient
+- Update Patient
+- Delete Patient
+- Patient Validation
+- Daily Summary Report
+- JSON Data Storage (Coming Soon)
+
+## Upcoming Features
+
+- JSON Persistence
+- MySQL Integration
+- Spring Boot REST API
+- Excel Reports
+- PDF Reports
+- Email Notifications
+- Login & Authentication
+- Responsive Web Dashboard
