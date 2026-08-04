@@ -8,8 +8,7 @@ public class Main {
 
         PatientService patientService = new PatientService();
         Validator validator = new Validator();
-        Report report = new Report();
-        CSVReader csvReader = new CSVReader();
+
 
         Patient patient = null;
 
