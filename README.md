@@ -2,262 +2,204 @@
 
 
 
-A Java console/web application that:
+🏁 PHASE 1 — Clean Architecture (Milestone 1)
+Goal: Refactor the current project into a professional package structure without changing functionality.
 
-Reads patient records from a CSV or database (MySQL)
-Validates each record (missing fields, duplicate IDs, wrong date formats, age errors)
-Flags and logs all errors automatically
-Generates a daily summary report (PDF or Excel) showing total records, error count, error type breakdown
-Sends an alert email when error rate crosses a threshold
+Step 1: Convert to a Package-Based Project
+Inside src, create these packages:
 
-Tech stack to use :
+src/
+│
+├── app/
+│     Main.java
+│
+├── model/
+│     Patient.java
+│
+├── service/
+│     PatientService.java
+│
+├── validation/
+│     Validator.java
+│
+├── report/
+│     Report.java
+│
+├── file/
+│     CSVReader.java
+│
+└── util/
+      InputHelper.java   (we'll create later)
+Why?
+Right now every class is in the default package.
 
-Java + Spring Boot + MySQL + Apache POI (Excel reports) + JavaMailSender + Maven
-Why it's unique:
-I have modified Main.java and patientservice.java to register the patient
+That is not how professional Java applications are organized.
 
-We'll first build a Java Console Application.
+Each package has one responsibility.
 
-It will:
+For example:
 
-✅ Register a patient
-✅ Display patient details
-✅ Validate patient information
-✅ Generate a simple report
-❌ No MySQL yet
-❌ No CSV yet
-❌ No PDF yet
-❌ No Email yet
+model
+contains only data classes.
 
+service
+contains business logic.
 
-We'll progress one step at a time:
+validation
+contains validation rules.
 
-Step 1 (Today): Create the project structure and menu.
-Step 2: Build the Patient class using constructors and access specifiers.
-Step 3: Register a patient using Scanner.
-Step 4: Add validation logic.
-Step 5: Display patient details.
-Step 6: Generate a summary report.
-Step 7: Add support for multiple patients.
-Step 8: Read patient data from a CSV file.
-Step 9: Connect the project to MySQL.
-Step 10: Convert it into a Spring Boot web application.
+report
+contains reporting.
 
-we'll create Patient.java.
+file
+handles file operations.
 
-In that class you'll learn how to use:
+This follows the Single Responsibility Principle (SRP).
 
-Private data members
-Default constructor
-Parameterized constructor
-Static member (patientCounter)
-Methods to display patient details
+Step 2: Add Package Statements
+Example:
 
-We'll design it like a real hospital software model instead of a simple classroom example.
+Patient.java
 
-Create the MiniHealthcare project folder.
-Create the src folder.
-Create these five Java files:
+package model;
+PatientService.java
+
+package service;
+Validator.java
+
+package validation;
+Report.java
+
+package report;
+CSVReader.java
+
+package file;
+Main.java
+
+package app;
+Step 3: Fix Imports
+Once you add packages, import the classes.
+
+Example in Main.java:
+
+import model.Patient;
+import service.PatientService;
+import validation.Validator;
+import report.Report;
+import file.CSVReader;
+This is how Java locates classes in different packages.
+
+Step 4: Remove Compiled Files
+Delete all generated .class files.
+
+Keep only source code:
+
 Main.java
 Patient.java
 PatientService.java
 Validator.java
 Report.java
+CSVReader.java
+Your IDE or Maven will regenerate .class files automatically.
 
-Create the Main Menu
-we'll create Patient.java.
-In that class you'll learn how to use:
+Step 5: Improve the Folder Structure
+At the project root, organize it like this:
 
-Private data members
-Default constructor
-Parameterized constructor
-Static member (patientCounter)
-Methods to display patient details
+MiniHealthcare/
+│
+├── src/
+├── data/
+│     patients.csv
+│
+├── docs/
+│     screenshots/
+│
+├── reports/
+│
+├── README.md
+├── LICENSE
+├── .gitignore
+Later, patients.csv will become patients.json.
 
-Create the Patient Class
-The Patient class is the heart of our application. It represents a single patient and stores all the patient's information.
+Step 6: Clean Up Main.java
+Main.java should only control the application flow.
 
-Java concepts we'll use
-✅ Access Specifiers (private, public)
-✅ Default Constructor
-✅ Parameterized Constructor
-✅ Static Member
-✅ Methods
+It should:
 
-we'll make Option 1: Register Patient actually work.
-We'll then create a Patient object using the parameterized constructor and display the patient's details.
+show the menu
 
-Module 3: Register Patient
-When the user selects 1. Register Patient then it should create a Patient object and display the patient's details.
+read the user's choice
 
-Step 1: Update PatientService.java
-Step 2: Update Main.java
+call methods in PatientService
 
+Avoid putting validation or business logic directly in Main.java.
 
-You have now used:
+Step 7: Learn These Java Concepts
+By completing this milestone, you'll understand:
 
-✅ Objects
-✅ Constructors
-✅ Returning an object from a method
-✅ Calling methods from another class
-✅ Storing an object in a variable
-✅ Displaying object data
+Packages
 
-Module 4: Patient Data Validation
+Imports
 
-Goal
+Encapsulation
 
-When a user registers a patient, the program should automatically check:
+Separation of Concerns
 
-Field	Validation
-Patient Name	Cannot be empty
-Age	Must be between 1 and 120
-Gender	Male / Female / Other
-Phone Number	Exactly 10 digits
-Admission Date	Cannot be empty (we'll check the date format later)
+Project Structure
 
-Step 1: Update Validator.java
-Step 2: Update Patient.java
-Step 3: Update Main.java
-Step 4: Modify Case 3
+Single Responsibility Principle (SRP)
 
-Why this module is important
+Code Organization
 
-This is the beginning of the "Patient Data Validation" part of your project title. Later, we'll extend it to validate:
+These are common interview topics.
 
-CSV records
-MySQL records
-Date formats using Java's Date API
-Duplicate patient IDs
-Missing mandatory fields in uploaded files
+📁 Milestone 1 Target Structure
+MiniHealthcare
+│
+├── src
+│   ├── app
+│   │     Main.java
+│   │
+│   ├── model
+│   │     Patient.java
+│   │
+│   ├── service
+│   │     PatientService.java
+│   │
+│   ├── validation
+│   │     Validator.java
+│   │
+│   ├── report
+│   │     Report.java
+│   │
+│   ├── file
+│   │     CSVReader.java
+│   │
+│   └── util
+│         InputHelper.java
+│
+├── data
+│     patients.csv
+│
+├── reports
+│
+├── docs
+│
+├── README.md
+├── LICENSE
+└── .gitignore
+🎯 Homework (Milestone 1)
+Complete these tasks:
 
-All of those will reuse the same Validator class, just like in real enterprise applications.
+Move all Java files into the correct packages.
 
-Learning Objective
+Add the appropriate package declaration to each file.
 
-Today you're learning something that every enterprise Java application uses:
+Fix all import statements until the project compiles successfully.
 
-Encapsulation (getters)
-Validation logic
-Regular expressions (matches("\\d{10}"))
-Separation of responsibilities:
-Patient → stores data
-PatientService → handles input
-Validator → validates data
-Main → controls program flow
+Delete all .class files from the repository.
 
-This separation makes the code cleaner and easier to extend.
+Create the data, reports, and docs folders.
 
-Module 5 – Store Multiple Patients
-Step 1 – Learn ArrayList
-Step 2 – Create Patient List
-Step 3 – Save Every Patient
-Step 4 – Display All Patients
-Step 5 – Modify Main.java
-New Java Concepts You'll Learn
+Run the application and verify that every menu option still works exactly as before.
 
-In this module, you'll learn several Core Java topics that are essential for interviews and real projects:
-
-ArrayList
-Generic Collections (ArrayList<Patient>)
-Enhanced for loop
-isEmpty()
-add()
-Managing multiple objects
-
-These are much more powerful than using arrays and are widely used in enterprise Java applications.
-
-We'll implement Search Patient, where a user can enter a Patient ID like 1002 and the program will display only that patient's details.
-
-That feature will prepare us for searching records in CSV files and MySQL databases later.
-
-Module 6 – Search Patient
-Step 1: Add a getter for Patient ID
-Step 2: Create searchPatient() in PatientService.java
-Step 3: Modify Main.java
-Step 4: Test
-
-New Java Concepts You've Learned
-
-With this module, you've now practiced:
-
-✅ ArrayList
-✅ Enhanced for loop
-✅ Searching objects in a collection
-✅ Getter methods
-✅ Boolean flag (found)
-✅ Breaking out of a loop with break
-
-These are very common interview topics and are used in many Java applications
-After search works, we'll build Generate Report.
-
-Instead of just printing "Generate Report Selected"
-This module will teach you:
-
-Loops for calculations
-Counters
-Conditional logic
-Basic statistics
-Report generation
-
-✅ Requirement 1: Print Patient ID after Registration
-✅ Requirement 2: Display Patient by Entering Patient ID
-
-Module 7: Generate Daily Summary Report
-Goal
-
-When the user selects 4. Generate Report, the application should display something like:
-
-=========================================
-       DAILY SUMMARY REPORT
-=========================================
-Total Patients      : 5
-Male Patients       : 3
-Female Patients     : 2
-Other Patients      : 0
-Average Age         : 31.60 Years
-=========================================
-
-Step 1: Create Report Method
-Step 2: Update PatientService.java
-Step 3: Update Main.java
-Step 4: Modify Case 4
-
-After this, we'll continue with:
-
-Module 8: Patient Data Validation (Advanced)
-Duplicate Patient IDs
-Date format validation (dd-MM-yyyy)
-Phone number validation using Regular Expressions
-Name validation (letters only)
-Module 9: CSV File Support
-Read patient records from a CSV file.
-Validate every record automatically.
-Module 10: MySQL Integration
-Save patients in a database.
-Search directly from MySQL.
-
-At that point, your project will start looking like a real healthcare management
-
-
-## Current Features
-
-- Register Patient
-- Display Patient
-- Search Patient
-- Update Patient
-- Delete Patient
-- Patient Validation
-- Daily Summary Report
-- JSON Data Storage (Coming Soon)
-
-## Upcoming Features
-
-- JSON Persistence
-- MySQL Integration
-- Spring Boot REST API
-- Excel Reports
-- PDF Reports
-- Email Notifications
-- Login & Authentication
-- Responsive Web Dashboard

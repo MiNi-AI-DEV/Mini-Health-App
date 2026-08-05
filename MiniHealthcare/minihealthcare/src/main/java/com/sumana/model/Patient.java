@@ -1,3 +1,4 @@
+package model;
 public class Patient {
 
     // Static member to generate Patient IDs

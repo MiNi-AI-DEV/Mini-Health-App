@@ -1,5 +1,8 @@
+package service;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.sumana.model.Patient;
 
 public class PatientService implements AutoCloseable 
 {

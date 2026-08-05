@@ -1,4 +1,7 @@
+package report;
 import java.util.ArrayList;
+
+import com.sumana.model.Patient;
 
 public class Report {
 

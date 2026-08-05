@@ -1,3 +1,7 @@
+package validation;
+
+import com.sumana.model.Patient;
+
 public class Validator {
 
     public boolean validatePatient(Patient patient) {
