@@ -203,3 +203,129 @@ Create the data, reports, and docs folders.
 
 Run the application and verify that every menu option still works exactly as before.
 
+Phase 2 – Replace CSV with JSON (Persistence Layer)
+Goal
+Instead of storing patient records in patients.csv, your application will store them in a JSON file.
+
+Every time a patient is:
+
+✅ Registered
+
+✅ Updated
+
+✅ Deleted
+
+the JSON file should be updated automatically.
+
+📂 Project Structure
+MiniHealthcare/
+│
+├── src/
+│   ├── app/
+│   ├── model/
+│   ├── service/
+│   ├── validation/
+│   ├── report/
+│   ├── file/
+│   │      JsonService.java
+│   │      CSVReader.java   (keep temporarily)
+│   └── util/
+│
+├── data/
+│      patients.json
+│
+├── reports/
+├── docs/
+└── README.md
+🎯 Learning Objectives
+By the end of this phase, you'll learn:
+
+What JSON is
+
+Serialization
+
+Deserialization
+
+Jackson Library
+
+ObjectMapper
+
+File Handling
+
+Exception Handling
+
+Persistent Storage
+
+These are fundamental skills for Spring Boot development.
+
+🗓️ Phase 2 Roadmap
+Module 2.1 – Learn JSON
+Understand JSON objects and arrays.
+
+Example:
+
+[
+  {
+    "patientId": 1001,
+    "patientName": "Rahul Sharma",
+    "age": 30,
+    "gender": "Male",
+    "phoneNumber": "9876543210",
+    "admissionDate": "27-07-2026"
+  }
+]
+
+🗓️ Phase 2 Roadmap
+Module 2.1 – Learn JSON
+Understand JSON objects and arrays.
+
+Example:
+
+[
+  {
+    "patientId": 1001,
+    "patientName": "Rahul Sharma",
+    "age": 30,
+    "gender": "Male",
+    "phoneNumber": "9876543210",
+    "admissionDate": "27-07-2026"
+  }
+]
+
+Module 2.2 – Convert to Maven
+Your project should become a Maven project.
+
+MiniHealthcare
+│
+├── src
+├── pom.xml
+Add Jackson Dependency
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.18.2</version>
+</dependency>
+You'll use this library to read and write JSON.
+
+Module 2.3 – Create JsonService
+Create:
+
+file/
+    JsonService.java
+Responsibilities:
+
+Save all patients
+
+Read all patients
+
+Create file if it doesn't exist
+
+Methods to implement:
+
+savePatients()
+
+loadPatients()
+
+createFileIfNotExists()
+
+
