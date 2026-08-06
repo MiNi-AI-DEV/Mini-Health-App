@@ -329,3 +329,102 @@ loadPatients()
 createFileIfNotExists()
 
 
+Module 2.4 – Create patients.json
+Inside:
+
+data/
+Create:
+
+patients.json
+Initially:
+
+[]
+An empty array represents no patient records.
+
+Module 2.5 – Save Automatically
+Modify PatientService.
+
+After:
+
+registerPatient();
+call:
+
+jsonService.savePatients(patientList);
+Now every registration is saved permanently.
+
+Module 2.6 – Load Automatically
+When the application starts:
+
+Main.java
+Instead of:
+
+new ArrayList<>();
+load from JSON:
+
+patientList = jsonService.loadPatients();
+Now data remains even after restarting the application.
+
+
+Module 2.7 – Update JSON
+Whenever:
+
+Update Patient
+finishes successfully:
+
+savePatients();
+Module 2.8 – Delete JSON
+After deleting:
+
+savePatients();
+The deleted patient disappears from the JSON file too.
+
+Module 2.9 – Import Existing CSV Once
+Reuse your current CSVReader.
+
+Flow:
+
+patients.csv
+        │
+        ▼
+CSVReader
+        │
+        ▼
+ArrayList<Patient>
+        │
+        ▼
+JsonService
+        │
+        ▼
+patients.json
+Once complete, CSV becomes a one-time migration tool.
+
+Module 2.10 – Test Everything
+Verify:
+
+Register a patient → appears in JSON
+
+Restart application → data is still available
+
+Update a patient → JSON reflects the change
+
+Delete a patient → removed from JSON
+
+Import CSV → JSON is populated correctly
+
+📚 Concepts You'll Master
+By the end of Phase 2, you'll have practical experience with:
+
+JSON
+
+Jackson ObjectMapper
+
+File I/O
+
+Serialization
+
+Deserialization
+
+Maven dependencies
+
+Persistent data storage
+
