@@ -1,11 +1,14 @@
-package app;
+package com.sumana.app;
+
+
+import java.util.Scanner;
+
 import model.Patient;
 import report.Report;
 import service.PatientService;
 import storage.JsonService;
 import validation.Validator;
 
-import java.util.Scanner;
 
 public class Main {
 

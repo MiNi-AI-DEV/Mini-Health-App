@@ -1,4 +1,4 @@
-package service;
+package com.sumana.service;
 import java.util.ArrayList;
 import java.util.Scanner;
 

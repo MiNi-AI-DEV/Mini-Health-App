@@ -1,3 +1,4 @@
+package com.sumana.model;
 package model;
 public class Patient {
 

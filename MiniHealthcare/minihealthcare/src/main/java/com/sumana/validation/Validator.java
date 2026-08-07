@@ -1,4 +1,4 @@
-package validation;
+package com.sumana.validation;
 
 import com.sumana.model.Patient;
 
